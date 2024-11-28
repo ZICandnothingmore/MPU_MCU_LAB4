@@ -1,8 +1,8 @@
-main.c:63:6:INIT_LED_TEST	8	static
-main.c:67:6:INIT_LED_TEST_1	8	static
-main.c:76:5:main	8	static
-main.c:139:6:SystemClock_Config	72	static
-main.c:175:13:MX_TIM2_Init	32	static
-main.c:220:13:MX_GPIO_Init	32	static
-main.c:257:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:269:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:64:6:INIT_LED_TEST	8	static
+main.c:68:6:INIT_LED_TEST_1	8	static
+main.c:77:5:main	8	static
+main.c:143:6:SystemClock_Config	72	static
+main.c:179:13:MX_TIM2_Init	32	static
+main.c:224:13:MX_GPIO_Init	32	static
+main.c:267:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:280:6:Error_Handler	4	static,ignoring_inline_asm

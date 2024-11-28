@@ -25,6 +25,7 @@
 #include "scheduler.h"
 #include "softwaretimer.h"
 #include "task.h"
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,11 +105,11 @@ int main(void)
   SCH_Init();
 //  SCH_Add_Task(INIT_LED_TEST, 10, 2000);
 //  SCH_Add_Task(INIT_LED_TEST_1, 10, 5000);
-  SCH_Add_Task(Task_1, 10, 500);
-  SCH_Add_Task(Task_3, 20, 1500);
-  SCH_Add_Task(Task_5, 30, 2000);
-  SCH_Add_Task(Task_4, 25, 2500);
-  SCH_Add_Task(Task_2, 15, 1000);
+  SCH_Add_Task(Task_1, 100, 500);
+  SCH_Add_Task(Task_3, 100, 1500);
+  SCH_Add_Task(Task_5, 100, 2000);
+  //SCH_Add_Task(Task_4, 25, 2500);
+  SCH_Add_Task(Task_2, 100, 1000);
 
 //  setTimer(0, 1000);
   /* USER CODE END 2 */
@@ -124,6 +125,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  SCH_Dispatch_Tasks();
+	  if (isButtonPressed(0)){
+		  SCH_Add_Task(Task_4, 100, 0);
+	  }
 //	  if (isTimerExpired(0)){
 //		  setTimer(0, 1000);
 //		  INIT_LED_TEST();
@@ -227,16 +231,16 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, RED_LED_Init_Pin|RED_LED_Test1_Pin|RED_LED_Test2_Pin|RED_LED_Task_1_Pin
-                          |RED_LED_Task_2_Pin|RED_LED_Task_3_Pin|RED_LED_Task_4_Pin|RED_LED_Task_5_Pin, GPIO_PIN_RESET);
+                          |RED_LED_Task_2_Pin|RED_LED_Task_3_Pin|RED_LED_Task_4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, a_Pin|b_Pin|c_Pin|d_Pin
                           |e_Pin|f_Pin|g_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : RED_LED_Init_Pin RED_LED_Test1_Pin RED_LED_Test2_Pin RED_LED_Task_1_Pin
-                           RED_LED_Task_2_Pin RED_LED_Task_3_Pin RED_LED_Task_4_Pin RED_LED_Task_5_Pin */
+                           RED_LED_Task_2_Pin RED_LED_Task_3_Pin RED_LED_Task_4_Pin */
   GPIO_InitStruct.Pin = RED_LED_Init_Pin|RED_LED_Test1_Pin|RED_LED_Test2_Pin|RED_LED_Task_1_Pin
-                          |RED_LED_Task_2_Pin|RED_LED_Task_3_Pin|RED_LED_Task_4_Pin|RED_LED_Task_5_Pin;
+                          |RED_LED_Task_2_Pin|RED_LED_Task_3_Pin|RED_LED_Task_4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -251,6 +255,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : BUTTON_Pin */
+  GPIO_InitStruct.Pin = BUTTON_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -258,6 +268,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 //	timer_run();
 	if(htim->Instance == TIM2) {
 		SCH_Update();
+		getInputKey();
 	}
 }
 /* USER CODE END 4 */

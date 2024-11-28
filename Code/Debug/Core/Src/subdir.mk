@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/button.c \
 ../Core/Src/display7SEG.c \
 ../Core/Src/main.c \
 ../Core/Src/scheduler.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 ../Core/Src/task.c 
 
 OBJS += \
+./Core/Src/button.o \
 ./Core/Src/display7SEG.o \
 ./Core/Src/main.o \
 ./Core/Src/scheduler.o \
@@ -31,6 +33,7 @@ OBJS += \
 ./Core/Src/task.o 
 
 C_DEPS += \
+./Core/Src/button.d \
 ./Core/Src/display7SEG.d \
 ./Core/Src/main.d \
 ./Core/Src/scheduler.d \
