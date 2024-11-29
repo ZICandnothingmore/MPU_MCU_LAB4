@@ -96,8 +96,8 @@
 //
 //			// Insert the task
 //			SCH_Tasks_G[newTaskIndex].pTask = pFunction;
-//			SCH_Tasks_G[newTaskIndex].Delay = newDelay;
-//			SCH_Tasks_G[newTaskIndex].Period = PERIOD;
+//			SCH_Tasks_G[newTaskIndex].Delay = newDelay/10;
+//			SCH_Tasks_G[newTaskIndex].Period = PERIOD/10;
 //			SCH_Tasks_G[newTaskIndex].RunMe = 0;
 //			if (SCH_Tasks_G[newTaskIndex].Delay == 0) {
 //				SCH_Tasks_G[newTaskIndex].RunMe = 1;

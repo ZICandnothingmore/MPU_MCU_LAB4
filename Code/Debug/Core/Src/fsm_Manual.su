@@ -1,0 +1,2 @@
+fsm_Manual.c:45:6:fsm_manual_run_button	8	static
+fsm_Manual.c:72:6:fsm_manual_run_LED	8	static

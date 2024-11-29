@@ -5,10 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/Global.c \
 ../Core/Src/button.c \
 ../Core/Src/display7SEG.c \
+../Core/Src/display7SEGLED.c \
+../Core/Src/fsm_Automatic.c \
+../Core/Src/fsm_Manual.c \
+../Core/Src/fsm_setting.c \
 ../Core/Src/main.c \
 ../Core/Src/scheduler.c \
+../Core/Src/scheduler_O1.c \
 ../Core/Src/scheduler_juststh.c \
 ../Core/Src/softwaretimer.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
@@ -19,10 +25,16 @@ C_SRCS += \
 ../Core/Src/task.c 
 
 OBJS += \
+./Core/Src/Global.o \
 ./Core/Src/button.o \
 ./Core/Src/display7SEG.o \
+./Core/Src/display7SEGLED.o \
+./Core/Src/fsm_Automatic.o \
+./Core/Src/fsm_Manual.o \
+./Core/Src/fsm_setting.o \
 ./Core/Src/main.o \
 ./Core/Src/scheduler.o \
+./Core/Src/scheduler_O1.o \
 ./Core/Src/scheduler_juststh.o \
 ./Core/Src/softwaretimer.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
@@ -33,10 +45,16 @@ OBJS += \
 ./Core/Src/task.o 
 
 C_DEPS += \
+./Core/Src/Global.d \
 ./Core/Src/button.d \
 ./Core/Src/display7SEG.d \
+./Core/Src/display7SEGLED.d \
+./Core/Src/fsm_Automatic.d \
+./Core/Src/fsm_Manual.d \
+./Core/Src/fsm_setting.d \
 ./Core/Src/main.d \
 ./Core/Src/scheduler.d \
+./Core/Src/scheduler_O1.d \
 ./Core/Src/scheduler_juststh.d \
 ./Core/Src/softwaretimer.d \
 ./Core/Src/stm32f1xx_hal_msp.d \

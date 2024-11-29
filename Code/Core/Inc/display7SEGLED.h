@@ -1,7 +1,7 @@
 /*
  * display7SEGLED.h
  *
- *  Created on: Nov 26, 2024
+ *  Created on: 23 thg 9, 2024
  *      Author: ACER
  */
 
@@ -9,6 +9,7 @@
 #define INC_DISPLAY7SEGLED_H_
 
 #include "main.h"
+#include "Global.h"
 
 #define NUM_0   (a_Pin | b_Pin | c_Pin | d_Pin | e_Pin | f_Pin)
 #define NUM_1   (b_Pin | c_Pin)
@@ -33,6 +34,5 @@ void update7SEG (int index);
 
 void updateBuffer(int mode);
 void display_4_7SEG();
-
 
 #endif /* INC_DISPLAY7SEGLED_H_ */

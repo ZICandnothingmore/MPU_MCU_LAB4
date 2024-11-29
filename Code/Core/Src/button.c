@@ -91,9 +91,11 @@ int isButtonLongPressed(int index) {
 //}
 
 void getInputKey() {
-	get_input_data(0, BUTTON_GPIO_Port, BUTTON_Pin);
+	get_input_data(0, BUTTON_1_GPIO_Port, BUTTON_1_Pin);
+	get_input_data(1, BUTTON_2_GPIO_Port, BUTTON_2_Pin);
+	get_input_data(2, BUTTON_3_GPIO_Port, BUTTON_3_Pin);
 
-	int no_of_used_button = 1;
+	int no_of_used_button = 3;
 
 	for (uint8_t i = 0; i < no_of_used_button; i++) {
 		if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {

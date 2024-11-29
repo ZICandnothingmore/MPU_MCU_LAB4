@@ -30,5 +30,5 @@ void Task_4(){
 }
 void Task_5(){
 	if (cnt > 9) cnt = 0;
-	display7SEG(cnt++);
+	update7SEG(cnt++);
 }
